@@ -1,6 +1,9 @@
 import axios from 'axios';
+import dotenv from 'dotenv';
 
-const apiKey = 'a093400c-fa5f-47ec-9b6c-e4d97003ae77';
+dotenv.config();
+
+const apiKey = process.env.API_KEY;
 
 const api = axios.create({
   baseURL: 'https://api.bestinslot.xyz/v3',
