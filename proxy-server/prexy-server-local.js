@@ -1,7 +1,9 @@
+// proxy-server.js
 const express = require('express');
 const axios = require('axios');
 
 const app = express();
+const port = process.env.PORT || 3001; // Choose a port for your proxy server
 
 // Enable CORS (Cross-Origin Resource Sharing)
 app.use((req, res, next) => {
@@ -16,8 +18,8 @@ app.use(express.json());
 app.use('/api', (req, res) => {
   const apiUrl = 'https://api.bestinslot.xyz/v3' + req.url;
 
-  // Load API key from environment variable for better security
-  const apiKey = process.env.API_KEY; 
+  // Include your API key here (either hardcode it or load it from an environment variable)
+  const apiKey = 'a093400c-fa5f-47ec-9b6c-e4d97003ae77'; // Replace with your API key
 
   axios({
     method: req.method,
@@ -35,5 +37,6 @@ app.use('/api', (req, res) => {
     });
 });
 
-// Export the app for serverless function usage on Vercel
-module.exports = app;
+app.listen(port, () => {
+  console.log(`Proxy server listening at http://localhost:${port}`);
+});

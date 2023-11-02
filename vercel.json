@@ -1,26 +1,18 @@
 {
     "version": 2,
-    "builds": [
-      {
-        "src": "api/proxy-server.ts",
-        "use": "@vercel/node"
-      },
-      {
-        "src": "package.json",
-        "use": "@vercel/static-build",
-        "config": {
-          "distDir": "build"
-        }
-      }
-    ],
     "routes": [
       {
         "src": "/api/(.*)",
-        "dest": "/api/proxy-server.ts"
+        "dest": "/proxy-server/proxy-server.js"
       },
       {
         "src": "/(.*)",
         "dest": "/build/index.html"
       }
-    ]
-  }  
+    ],
+    "env": {
+      "CI": "false",
+      "API_KEY": "a093400c-fa5f-47ec-9b6c-e4d97003ae77" // Use a secret name that you set up in Vercel
+    }
+  }
+  
