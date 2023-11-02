@@ -12,7 +12,7 @@
     ],
     "env": {
       "CI": "false",
-      "API_KEY": "a093400c-fa5f-47ec-9b6c-e4d97003ae77" // Use a secret name that you set up in Vercel
+      "API_KEY": "a093400c-fa5f-47ec-9b6c-e4d97003ae77"
     }
   }
   
