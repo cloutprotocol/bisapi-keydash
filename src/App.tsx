@@ -1,25 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import ApiKeyDetails from './components/ApiKeyDetails';
+import ApiKeyList from './components/ApiKeyList';
+import './App.scss';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        <main className="App-main">
+          <div className="sidebar">
+            <ApiKeyList />
+          </div>
+          <div className="content">
+            <Routes>
+              <Route path="/" element={<div className='select pointer'>⬅ Select an API Key</div>} />
+              <Route path="/api-key/:keyName" element={<ApiKeyDetails />} />
+            </Routes>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
