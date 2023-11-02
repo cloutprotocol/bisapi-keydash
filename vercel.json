@@ -2,8 +2,8 @@
     "version": 2,
     "routes": [
       {
-        "src": "/(.*)",
-        "dest": "/proxy-server/proxy-server.js"
+        "src": "/api/(.*)",
+        "dest": "/proxy-server.ts"
       },
       {
         "src": "/(.*)",
