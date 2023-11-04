@@ -6,7 +6,7 @@ function ApiKeyList() {
   const [apiKeys, setApiKeys] = useState<string[]>([]);
 
   useEffect(() => {
-    const apiUrl = '/api/a7df2ae5-fe39-423a-b31d-bcd6c21cdc68/apikeys';
+    const apiUrl = 'https://api.bestinslot.xyz/v3/api/a7df2ae5-fe39-423a-b31d-bcd6c21cdc68/apikeys';
 
     fetch(apiUrl)
       .then((response) => {
