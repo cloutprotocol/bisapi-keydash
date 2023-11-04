@@ -1,14 +1,9 @@
 {
-    "version": 2,
-    "routes": [
-      {
-        "src": "/api/(.*)",
-        "dest": "/proxy-server.ts"
-      }
-    ],
-    "env": {
-      "CI": "false",
-      "API_KEY": "a093400c-fa5f-47ec-9b6c-e4d97003ae77"
-    }
-  }
-  
+  "version": 2,
+  "builds": [
+    { "src": "proxy-server/proxy-server.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/api", "dest": "proxy-server/proxy-server.js" }
+  ]
+}

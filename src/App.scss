@@ -17,9 +17,9 @@ body {
   padding: 0;
 
   footer {
-    background: #19191C !important;
+    background: #17171C !important;
     margin-left: 220px;
-    font-size: 9px;
+    font-size: 8px;
   }
 
   .App-main {
@@ -27,21 +27,23 @@ body {
     flex: 1;
 
     .sidebar {
-      width: 200px; // Adjust the width of the sidebar as needed
-      background-color: #f4f4f4; // Sidebar background color
-      overflow-y: auto; // Enables scrolling if the list is too long
-      padding: 10px;
-      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); // Adds a subtle shadow to the sidebar
+      width: 200px; 
+      background-color: #f4f4f4; 
+      overflow-y: auto;
+      padding: 5px;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
       height: 100%;
       overflow: scroll;
       position: fixed;
       top: 0;
       left: 0;
-      font-size: 11px;
+      font-size: 12px;
 
       a {
         color: #000;
         text-decoration: none;
+        font-weight: 100;
+        font-size:10px;
       }
 
       ul {
@@ -57,11 +59,14 @@ body {
       h1 {
         color: black;
         margin-block-start: 0;
+        font-size:18px;
+        margin-left:2px;
       }
 
       .chest {
         display: inline-block;
         width: 40px;
+        margin-right:10px;
         align-items: center;
         position: relative;
         top: 10px;
@@ -79,12 +84,12 @@ body {
     .pointer {
       position: relative;
       animation: bounce 2s ease infinite;
-      color: rgb(246, 174, 45);
+      color: #F7931B;
       font-weight: 700;
       text-transform: uppercase;
-      padding-left: 8px;
+      padding-left: 20px;
       text-shadow: currentcolor 0 0 16px;
-      margin-top: 15px;
+      margin-top: 20px;
 
       @keyframes bounce {
         0%, 100% {
@@ -100,37 +105,143 @@ body {
     }
 
     .content {
-      flex: 1;
-      padding: 10px;
-      overflow-y: auto; // Enables scrolling for the content area
-      margin-left: 250px;
-      min-width: 400px; // Adjust the left margin to account for the sidebar width
+      flex:1;
+      overflow-y: auto;
+      margin-left: 210px;
       h1 {
-        font-size: 25px;
+        font-size: 20px;
         padding: 0;
         margin-block-start: 0;
       }
       span {
-        color: rgb(246, 174, 45);
+        color: #ff8c00;
         font-weight: 700;
         text-transform: uppercase;
         padding-left: 8px;
-        text-shadow: currentcolor 0 0 16px;
+        text-shadow: #be6900 0 0 10px;
       }
-      td {
-        &:nth-child(2) {
-          /* Style for the second <td> in each row */
-          // Add your desired styling here
-          // background-color: #ffffff; // Example background color
-          color: #ffffff; // Example text color
-          padding-left:20px;
-          // Add other styles as needed
+      .isactive {
+        &.active {
+          color: rgb(0, 222, 0);
+          float: right;
+          margin-right: 10px;
+        }
+        
+        &.disabled {
+          color: red;
+          float: right;
+          margin-right: 10px;
         }
       }
+        .container {
+          display: flex;
+          flex-wrap: wrap;
+          gap:10px; 
+          justify-content: center;
+
+          h2 {
+            margin-bottom: 5px;
+            font-size: 12px;
+            color:rgb(146, 146, 146);
+            padding:10px 0px;
+            font-family:monospace;
+            border-top:1px solid rgb(146, 146, 146);
+            border-bottom:1px solid rgb(146, 146, 146);
+          }
+          .row {
+            display: flex;
+            align-items: center;
+
+            &:last-child {
+              border-bottom: none;
+            }
+            strong {
+              flex-basis: 40%;
+              text-align: left;
+              padding: 10px 0;
+            }
+            span {
+              flex-grow: 1; 
+              padding: 10px 0; 
+              padding-left: 20px; 
+            }
+          }
+
+          .data-section1 {
+            flex-basis: calc(100% - 10px);
+            display: flex;
+            flex-direction: column;
+            padding: 0px 10px;
+            border: 1px solid rgb(40, 40, 40);
+            box-sizing: border-box;
+            .svg {
+              display: inline;
+              width: 20px;
+              height: 20px;
+              align-items: center;
+              justify-content: center;
+              color:white;
+            }
+          }
+
+          .data-section-graph {
+            flex-basis: calc(100% + 10px);
+            display: flex;
+            height: 460px;
+            flex-direction: column;
+            align-items: center;
+            margin-left:-1px;
+            background: #f4f4f4;
+            padding: 0px 10px;
+            border: 1px solid rgb(40, 40, 40);
+            box-sizing: border-box;
+            .granularity-buttons {
+              margin-bottom:-20px;
+              z-index: 10;
+            }
+            .granularity-buttons button {
+              padding: 2px 40px;
+              border-radius: 100px;
+              margin: 10px;
+              border: 1px solid #F7931B;
+              background-color: #fff;
+              color: #000000;
+              cursor: pointer;
+              transition: all 0.3s ease;
+              font-size:10px !important;
+            }
+            .granularity-buttons button:hover {
+              background-color: #F7931B;
+              color: #fff;
+            }
+            
+            .granularity-buttons button.active {
+              background-color: #F7931B;
+              color: #fff;
+            }
+          }
+          .data-section {
+            flex-basis: calc(33.333% - 10px);
+            display: flex;
+            min-width:280px;
+            flex-direction: column;
+            padding: 0px 10px;
+            border: 1px solid rgb(40, 40, 40);
+            box-sizing: border-box;
+            @media (max-width: 1200px) {
+              min-width: 100%;
+            }
+          }
+        }
       .usage{
-        padding:20px 0px 0px 20px;
-        margin-left:-30px;
+        padding:20px 40px 40px 10px;
         width:100%;
+        @media (max-width: 1200px) {
+          max-width: 750px;
+        }
+        @media (max-width: 800px) {
+          max-width: 500px;
+        }
       }
       // SKELETON LOADING
       .skeleton-loading {
@@ -143,7 +254,6 @@ body {
         border-radius: 3px;
         margin-right: 10px; /* Add spacing between cells */
       }
-
       @keyframes loading {
         0% {
           background-position: 200% 0;
