@@ -1,6 +1,7 @@
 // proxy-server.js
 const express = require('express');
 const axios = require('axios');
+require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 3001; // Choose a port for your proxy server
@@ -18,7 +19,7 @@ app.use(express.json());
 app.use('/api', (req, res) => {
   const apiUrl = 'https://api.bestinslot.xyz/v3' + req.url;
 
-  const apiKey = 'a093400c-fa5f-47ec-9b6c-e4d97003ae77';
+  const apiKey = process.env.API_KEY;
 
   axios({
     method: req.method,
