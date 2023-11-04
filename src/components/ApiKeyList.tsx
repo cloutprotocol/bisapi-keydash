@@ -29,7 +29,7 @@ function ApiKeyList() {
 
   return (
     <div>
-      <a href="/"><h1><img className='chest' src={chestLogo} alt="My Image" />[Key Names]</h1></a>
+      <a href="/"><h1><img className='chest' src={chestLogo} alt="chest" />[Key Names]</h1></a>
       <ul>
         {apiKeys.map((keyName, index) => (
           <li key={index}>

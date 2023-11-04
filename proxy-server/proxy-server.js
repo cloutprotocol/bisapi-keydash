@@ -18,7 +18,7 @@ app.use(express.json());
 app.use('/api', (req, res) => {
   const apiUrl = 'https://api.bestinslot.xyz/v3' + req.url;
 
-  const apiKey = process.env.API_KEY; 
+  const apiKey = 'a093400c-fa5f-47ec-9b6c-e4d97003ae77';
 
   axios({
     method: req.method,
