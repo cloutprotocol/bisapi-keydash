@@ -5,7 +5,7 @@ function Main() {
   const [apiKeys, setApiKeys] = useState<string[]>([]);
 
   useEffect(() => {
-    const apiUrl = 'https://api.bestinslot.xyz/v3/api/a7df2ae5-fe39-423a-b31d-bcd6c21cdc68/apikeys'; // Use the proxy URL
+    const apiUrl = '/api/a7df2ae5-fe39-423a-b31d-bcd6c21cdc68/apikeys'; // Use the proxy URL
 
     fetch(apiUrl)
       .then((response) => {
