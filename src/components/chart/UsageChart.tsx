@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import Chart from 'chart.js/auto';
 import 'chartjs-adapter-moment';
+import moment from 'moment';
 
 interface UsageEntry {
   date: string;
@@ -20,8 +21,8 @@ const UsageChart: React.FC<UsageChartProps> = ({ usages }) => {
         chartInstance.current.destroy();
       }
       const labels = usages.map(entry => {
-        const date = new Date(entry.date);
-        return `${date.toLocaleDateString()} ${date.getHours()}:00`;
+        const momentDate = moment(entry.date, 'MM/DD/YYYY H:mm'); // Adjust the format as needed
+        return momentDate.format();
       });
       const chartData = usages.map(entry => entry.query_count);
       const ctx = chartRef.current.getContext('2d');

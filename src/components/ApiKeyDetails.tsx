@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Loading from './frame/Loading';
 import UsageChart from './chart/UsageChart';
+import moment from 'moment';
 
 interface UsageEntry {
   date: string;
@@ -18,33 +19,33 @@ function ApiKeyDetails() {
     setLoading(true);
     const apiUrl = `/api/a7df2ae5-fe39-423a-b31d-bcd6c21cdc68/apikey/usage?keyname=${keyName}`;
     fetch(apiUrl)
-      .then((response) => {
+      .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         return response.json();
       })
-      .then((data) => {
+      .then(data => {
         const transformedData = data.data.usages.map((entry: UsageEntry) => {
-          const transformedDate = new Date(entry.date);
+          // Ensure date is in ISO 8601 format
+          const transformedDate = moment(entry.date, moment.ISO_8601);
           const queryCount = entry.query_count;
           return {
-            date: transformedDate,
+            date: transformedDate.toDate(),
             query_count: queryCount,
           };
         });
-        // LOG OUTPUT TO CONSOLE
-        console.log("Transformed Data: ", transformedData);
         setUsageData(data.data);
         setUsages(transformedData);
       })
-      .catch((error) => {
+      .catch(error => {
         console.error(`Error fetching usage data for key name ${keyName}:`, error);
       })
       .finally(() => {
         setLoading(false);
       });
   }, [keyName]);
+
   if (loading) {
     return <Loading />;
   }

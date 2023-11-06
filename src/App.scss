@@ -16,6 +16,24 @@ body {
   margin: 0;
   padding: 0;
 
+  header{
+    background:rgb(255, 255, 255) !important;
+    font-size: 8px;
+    position:absolute;
+    right:0px;
+    top:10%;
+    padding:5px 2px;
+    font-size:13px;
+    border-end-start-radius: 5px;
+    border-end-end-radius: 5px;
+    writing-mode: vertical-rl;
+    color:black;
+    a{
+      text-decoration: none !important;
+      color:black;
+    }
+  }
+
   footer {
     background: #17171C !important;
     margin-left: 220px;
@@ -36,7 +54,7 @@ body {
       height: 100%;
       overflow: scroll;
       position: fixed;
-      font-size: 12px;
+      font-size: 10px;
       .titlebar{
         height:60px;
         top:0px;
@@ -44,29 +62,37 @@ body {
         position: fixed;
         width:210px;
         text-align: center;
-        background: rgba(255, 255, 255, 0.55);
+        background: #f4f4f4a9;
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8.6px);
       }
-
-      a {
+      li a {
         color: #000;
+        padding:10px 15px;
         text-decoration: none;
         font-weight: 100;
         font-family:monospace;
-        font-size:11px;
+        display: inline-block;
+        width: 100%;
+      }
+      .active {
+        color: #F7931B;
+        font-weight: 700;
+        text-transform: uppercase;
+        background-color: #17171C;
+        text-shadow: currentcolor 0 0 16px;
       }
 
       ul {
         list-style-type: none;
         padding: 0;
+        margin-left:-10px;
         margin-bottom:50px;
       }
 
       li {
         border-bottom: 1px dotted #17171c9f;
-        padding: 5px;
       }
 
       h1 {
@@ -102,7 +128,7 @@ body {
       text-transform: uppercase;
       padding-left: 20px;
       text-shadow: currentcolor 0 0 16px;
-      margin-top: 20px;
+      margin-top: 396px;
 
       @keyframes bounce {
         0%, 100% {
