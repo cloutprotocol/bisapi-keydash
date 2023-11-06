@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "env": {
+    "env": {
     "CI": "false"
   },
   "builds": [
