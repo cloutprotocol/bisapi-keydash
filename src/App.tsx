@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import ApiKeyDetails from './components/ApiKeyDetails2';
+import Header from './components/frame/Header';
+import Footer from './components/frame/Footer';
+import ApiKeyDetails from './components/ApiKeyDetails';
 import ApiKeyList from './components/ApiKeyList';
 import './App.scss';
 
@@ -19,6 +19,7 @@ function App() {
             <Routes>
               <Route path="/" element={<div className='select pointer'>⬅ Select an API Key</div>} />
               <Route path="/api-key/:keyName" element={<ApiKeyDetails />} />
+              {/* <Route path="/usage" element={<UsagePage />} /> */}
             </Routes>
           </div>
         </main>

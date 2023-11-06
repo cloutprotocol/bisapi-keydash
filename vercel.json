@@ -17,8 +17,12 @@
       "dest": "/proxy-server/proxy-server.js"
     },
     {
+      "handle": "filesystem"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/build/index.html"
+      "dest": "/build/index.html",
+      "continue": true
     }
   ]
 }

@@ -27,32 +27,45 @@ body {
     flex: 1;
 
     .sidebar {
+      top:0px;
       width: 200px; 
       background-color: #f4f4f4; 
       overflow-y: auto;
-      padding: 5px;
+      padding: 50px 5px;
       box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
       height: 100%;
       overflow: scroll;
       position: fixed;
-      top: 0;
-      left: 0;
       font-size: 12px;
+      .titlebar{
+        height:60px;
+        top:0px;
+        left:0px;
+        position: fixed;
+        width:210px;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.55);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8.6px);
+      }
 
       a {
         color: #000;
         text-decoration: none;
         font-weight: 100;
-        font-size:10px;
+        font-family:monospace;
+        font-size:11px;
       }
 
       ul {
         list-style-type: none;
         padding: 0;
+        margin-bottom:50px;
       }
 
       li {
-        border-bottom: 1px solid #17171c1a;
+        border-bottom: 1px dotted #17171c9f;
         padding: 5px;
       }
 
@@ -118,7 +131,7 @@ body {
         font-weight: 700;
         text-transform: uppercase;
         padding-left: 8px;
-        text-shadow: #be6900 0 0 10px;
+        text-shadow: #be6800a3 0 0 8px;
       }
       .isactive {
         &.active {
@@ -191,9 +204,8 @@ body {
             flex-direction: column;
             align-items: center;
             margin-left:-1px;
-            background: #f4f4f4;
+            background: transparent;
             padding: 0px 10px;
-            border: 1px solid rgb(40, 40, 40);
             box-sizing: border-box;
             .granularity-buttons {
               margin-bottom:-20px;
@@ -234,8 +246,7 @@ body {
           }
         }
       .usage{
-        padding:20px 40px 40px 10px;
-        width:100%;
+        padding:20px 0px 20px 0px;
         @media (max-width: 1200px) {
           max-width: 750px;
         }
@@ -243,6 +254,28 @@ body {
           max-width: 500px;
         }
       }
+      // LOADING WHEEL
+      .loading-container {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        margin-top:30%;
+      }
+      
+      .loading-spinner {
+        border: 5px solid #f3f3f3; // Light gray for the loader track
+        border-top: 5px solid #ff8c00; // White color for the spinner
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        margin-left:-25px;
+        animation: spin 2s linear infinite;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }      
       // SKELETON LOADING
       .skeleton-loading {
         background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);

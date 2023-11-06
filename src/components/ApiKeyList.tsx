@@ -7,7 +7,6 @@ function ApiKeyList() {
 
   useEffect(() => {
     const apiUrl = '/api/a7df2ae5-fe39-423a-b31d-bcd6c21cdc68/apikeys';
-
     fetch(apiUrl)
       .then((response) => {
         if (!response.ok) {
@@ -17,7 +16,7 @@ function ApiKeyList() {
       })
       .then((data) => {
         if (data && data.data && Array.isArray(data.data)) {
-          setApiKeys(data.data); // Assuming data.data is an array of key names
+          setApiKeys(data.data);
         } else {
           throw new Error('Invalid API response format');
         }
@@ -29,7 +28,9 @@ function ApiKeyList() {
 
   return (
     <div>
+      <div className='titlebar'>
       <a href="/"><h1><img className='chest' src={chestLogo} alt="chest" />[Key Names]</h1></a>
+      </div>
       <ul>
         {apiKeys.map((keyName, index) => (
           <li key={index}>
