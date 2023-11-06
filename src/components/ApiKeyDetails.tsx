@@ -56,6 +56,7 @@ function ApiKeyDetails() {
           <div className="data-section1">
             <h2>
               <div className="svg">
+              <svg width="16" height="10" viewBox="0 0 16 10" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M9.6 0H16V6.4H14.4V3.2H12.8V1.6H9.6V0ZM11.2 4.8V3.2H12.8V4.8H11.2ZM9.6 6.4V4.8H11.2V6.4H9.6ZM8 6.4H9.6V8H8V6.4ZM6.4 4.8H8V6.4H6.4V4.8ZM4.8 4.8V3.2H6.4V4.8H4.8ZM3.2 6.4V4.8H4.8V6.4H3.2ZM1.6 8V6.4H3.2V8H1.6ZM1.6 8V9.6H0V8H1.6Z"></path></svg>
               </div>
               Api Key Usage<span>{keyName}<span className={`isactive ${usageData.is_active ? 'active' : 'disabled'}`}>
                 {usageData.is_active ? 'Active' : 'Disabled'}
